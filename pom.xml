@@ -48,5 +48,6 @@
 	</build>
   <modules>
   	<module>microboot-base</module>
+  	  <module>microboot-test</module>
   </modules>
 </project>
