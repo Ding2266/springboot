@@ -15,12 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import cn.mldn.microboot.service.IMessageService;
+
 @RestController	//本类中的所有的返回都是Rest类型（省略了"@ResponseBody"）
 public class MessageController {
-	
+	@Resource 
+	private IMessageService messageService ; 
 	@Resource
 	private MessageSource messageSource ; 
 	
+	@RequestMapping("/msg")
+	public String hello() {
+		return this.messageService.echo() ; 
+	}
 	@RequestMapping("/welcome")
 	public String welcome() {
 		return this.messageSource.getMessage("welcome.msg", new Object[] {"mldn"},Locale.getDefault()) ;  
