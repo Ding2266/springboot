@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class bootStart {
 	@RequestMapping("/")
 	@ResponseBody
-	String home() {
+	 public String home() {
 		return "Hello World!" ;  
 	}
 	public static void main(String[] args) {

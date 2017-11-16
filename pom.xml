@@ -49,5 +49,6 @@
   <modules>
   	<module>microboot-base</module>
   	  <module>microboot-test</module>
+    <module>microboot-annotation</module>
   </modules>
 </project>
