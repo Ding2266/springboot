@@ -48,6 +48,5 @@
 	</build>
   <modules>
   	<module>microboot-base</module>
-    <module>sdkjfsdf</module>
   </modules>
 </project>
