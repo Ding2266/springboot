@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cn.mldn</groupId>
+  <artifactId>microboot</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>microboot</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+  	<spring-boot-dependencies.version>1.5.8.RELEASE</spring-boot-dependencies.version>
+  	<jdk.version>1.8</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<!-- Import dependency management from Spring Boot -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>${spring-boot-dependencies.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+  <build>
+  	<finalName>microboot</finalName>
+		<plugins>
+			<plugin>	<!-- 该插件的主要功能是进行项目的打包发布处理 -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>	<!-- 设置程序执行的主类 -->
+					<mainClass>cn.mldn.microboot.StartSpringBootMain</mainClass>
+				</configuration>
+				<executions>
+					<execution> 
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+  <modules>
+  	<module>microboot-base</module>
+    <module>sdkjfsdf</module>
+  </modules>
+</project>
