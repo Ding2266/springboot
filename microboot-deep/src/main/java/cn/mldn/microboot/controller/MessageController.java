@@ -1,19 +1,30 @@
 package cn.mldn.microboot.controller;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-@Controller
+@RestController	//本类中的所有的返回都是Rest类型（省略了"@ResponseBody"）
 public class MessageController {
+	
+	@Resource
+	private MessageSource messageSource ; 
+	
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return this.messageSource.getMessage("welcome.msg", new Object[] {"mldn"},Locale.getDefault()) ;  
+	}
 	@RequestMapping("/echo")
 	@ResponseBody
 	public String echo(String msg) {
