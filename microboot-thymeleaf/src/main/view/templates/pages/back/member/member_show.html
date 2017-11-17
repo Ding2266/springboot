@@ -29,5 +29,9 @@
 			 是好人！
 		</span>
 	</div>
+	<hr/>
+	<div th:replace="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
+	<div th:include="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
+
 </body>
 </html>
