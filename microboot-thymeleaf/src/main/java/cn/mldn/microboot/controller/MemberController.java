@@ -2,7 +2,9 @@ package cn.mldn.microboot.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +23,16 @@ public class MemberController {
 		vo.setAge(10);
 		vo.setSalary(500.21);
 		vo.setBirthday(new Date());
+		Map<Long,String> deptMap = new HashMap<Long,String>() ; 
+		deptMap.put(10L, "财务部") ; 
+		deptMap.put(20L, "销售部") ; 
+		model.addAttribute("allDepts",deptMap) ; 
 		model.addAttribute("member", vo) ; 
 		return "back/member/member_show" ; 
 	}
 	@RequestMapping("/member_list")
 	public Object list(Model model) {
-		List<Member> all = new ArrayList<Member>() ; 
+		Map<String,Member> allMembers = new HashMap<String,Member>() ; 
 		for(int x=0 ; x<10 ; x++) {
 			Member vo = new Member() ;
 			vo.setMid("dj" + x);
@@ -35,9 +41,9 @@ public class MemberController {
 			vo.setAge(10);
 			vo.setSalary(500.21);
 			vo.setBirthday(new Date());
-			all.add(vo) ; 
+			allMembers.put("vo-" + x, vo) ; 
 		}
-		model.addAttribute("allMembers", all) ; 
+		model.addAttribute("allMembers", allMembers) ; 
 		return "back/member/member_list" ; 
 	}
 }

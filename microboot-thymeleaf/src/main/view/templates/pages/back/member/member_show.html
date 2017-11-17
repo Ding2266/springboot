@@ -30,8 +30,16 @@
 		</span>
 	</div>
 	<hr/>
-	<div th:replace="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
-	<div th:include="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
-
+		<div th:replace="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
+		<div th:include="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
+	<hr/>
+		<p th:text="${#maps.containsKey(allDepts,10L)}"/>
+		<p th:text="${allDepts[10L]}"/>
+	<hr/>
+		<div th:object="${member}">
+			<span th:text="'姓名：' + *{name}"/><br/>
+			<span th:text="'部门：' + ${allDepts[member.deptno]}"/><br/>
+			<span th:text="'所有部门：' + ${allDepts}"/>
+		</div>
 </body>
 </html>
