@@ -80,5 +80,6 @@
     <module>microboot-annotation</module>
     <module>microboot-deep</module>
 	<module>microboot-thymeleaf</module>
+	<module>microboot-upload</module>
   </modules>
 </project>

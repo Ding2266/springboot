@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>SpringBoot模板渲染</title>
+	<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+	<link rel="icon" type="image/x-icon" th:href="@{/images/mldn.ico}"/>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+	<form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+		照片：<input type="file" name="photo" id="photo"/>
+		<input type="submit" value="上传"/>
+	</form>
+</body>
+</html>
