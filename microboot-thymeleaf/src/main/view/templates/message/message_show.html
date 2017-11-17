@@ -12,5 +12,9 @@
 	<p th:text="'msg = ' + ${msg}"/>
 	<p th:utext="'欢迎信息：' + #{welcome.msg('ding')}"/>
 	<p th:utext="'1 + 1 = ' + (1 + 1)"/>
+	<p th:text="${#httpServletRequest.getHeader('Accept-Language')}"/>
+	<p th:text="${#httpServletRequest.getSession().getId()}"/>
+	<p th:text="${#httpSession.getId()}"/>
+	<p th:text="${#httpServletRequest.getServletContext().getRealPath('/')}"/>
 </body>
 </html>
