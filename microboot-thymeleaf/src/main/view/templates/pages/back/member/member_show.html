@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>SpringBoot模板渲染</title>
+	<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+	<link rel="icon" type="image/x-icon" th:href="@{/images/mldn.ico}"/>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+	<div th:object="${member}">
+		<p th:text="'用户编号：' + *{mid}"/>
+	</div>
+	<p th:text="'用户姓名：' + ${member.name}"/>
+	<p th:text="'用户年龄：' + ${member.age}"/>
+	<p th:text="'用户工资：' + ${member.salary}"/>
+	<p th:text="'部门编号：' + ${member.deptno}"/>
+	<p th:text="'出生日期：' + ${#dates.format(member.birthday,'yyyy-MM-dd')}"/>
+</body>
+</html>
