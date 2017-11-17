@@ -2,10 +2,10 @@ DROP DATABASE mldn ;
 CREATE DATABASE mldn CHARACTER SET UTF8 ;
 USE mldn ;
 CREATE TABLE dept (
-   did                  bigint	AUTO_INCREMENT ,
+   deptno                  bigint	AUTO_INCREMENT ,
    dname                varchar(50),
    loc					varchar(50) ,
-   CONSTRAINT pk_did1 primary key (did)
+   CONSTRAINT pk_deptno primary key (deptno)
 ) engine='innodb';
 INSERT INTO dept (dname,loc) VALUES ('管理部','北京') ;
 INSERT INTO dept (dname,loc) VALUES ('人事部','济南') ;

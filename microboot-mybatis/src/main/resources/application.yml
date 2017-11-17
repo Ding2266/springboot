@@ -1,3 +1,8 @@
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml  # 定义mybatis核心配置文件的路径
+  type-aliases-package: cn.mldn.microboot.vo       # 定义别名出现的开发包
+  mapper-locations:
+  - classpath:mybatis/mapping/**/*.xml            # 所有的映射文件路径
 spring:
   profiles:
     active: dev
