@@ -79,5 +79,6 @@
   	  <module>microboot-test</module>
     <module>microboot-annotation</module>
     <module>microboot-deep</module>
+	<module>microboot-thymeleaf</module>
   </modules>
 </project>

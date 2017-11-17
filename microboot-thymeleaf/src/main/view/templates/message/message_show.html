@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>SpringBoot模板渲染</title>
+	<link rel="icon" type="image/x-icon" href="/images/mldn.ico"/>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+	<p th:utext="'title = '+ ${title}"/>
+	<p th:text="'msg = ' + ${msg}"/>
+	<p th:utext="'欢迎信息：' + #{welcome.msg('ding')}"/>
+	<p th:utext="'1 + 1 = ' + (1 + 1)"/>
+</body>
+</html>
