@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+  thymeleaf:
+    prefix: classpath:/templates/pages/
+  http:
+    multipart:
+      enabled: true   #可以启用http上传
+      max-file-size: 10MB #设置支持的单个上传文件的大小限制
+      max-request-size: 20MB #设置最大的请求的文件大小，设置总体大小请求
+      file-size-threshold: 512KB #当上传文件达到指定配置量的时候会将文件内容写入磁盘
+      location: /   #设置上传的临时目录  
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  # 配置数据源类型
+    url: jdbc:mysql://localhost:3306/mldn         # 数据库的连接地址
+    driver-class-name: org.gjt.mm.mysql.Driver    # 驱动程序
+    username: root                           #用户名
+    password: mysqladmin                    #密码
+    dbcp2:                                  #数据库连接池配置
+      min-idle: 1                           # 最小维持连接数
+      max-idle: 1                           # 最大维持连接数
+      max-total: 1                          # 最大的可用连接数
+      max-wait-millis: 200                  # 最大等待时间
+      initial-size: 1                       # 初始化连接数
+---    
+spring:
+  profiles: dev
+  messages:
+    basename: i18n/Messages
+    encoding: UTF-8
+    cache-seconds: 3600
+server:
+  port: 80  #定义服务端口
+  #context-path: /hello
+  
+---
+spring:
+  profiles: product
+  messages:
+    basename: i18n/Messages
+    encoding: UTF-8
+    cache-seconds: 3600
+server:
+   port: 8080  #定义服务端口

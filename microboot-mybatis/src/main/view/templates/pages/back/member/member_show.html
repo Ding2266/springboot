@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>SpringBoot模板渲染</title>
+	<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+	<link rel="icon" type="image/x-icon" th:href="@{/images/mldn.ico}"/>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+	<div th:object="${member}">
+		<p th:text="'用户编号：' + *{mid}"/>
+	</div>
+	<p th:text="'用户姓名：' + ${member.name}"/>
+	<p th:text="'用户年龄：' + ${member.age}"/>
+	<p th:text="'用户工资：' + ${member.salary}"/>
+	<p th:text="'部门编号：' + ${member.deptno}"/>
+	<p th:text="'出生日期：' + ${#dates.format(member.birthday,'yyyy-MM-dd')}"/>
+	
+	<div th:object="${member}">
+		<span th:if="*{age ge 18}">
+			<span th:text="*{name} + '是一个成年人.'"/>
+		</span>
+		<span th:if="*{age lt 18}">
+			<span th:text="*{name} + '是一个未成年人.'"/>
+		</span>
+	</div>
+	<div th:object="${member}">
+		<span th:if="*{name == 'ding'}">
+			 是好人！
+		</span>
+	</div>
+	<hr/>
+		<div th:replace="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
+		<div th:include="@{/plugins/footer} :: companyInfo" th:with="iid=2,sid=21"/>
+	<hr/>
+		<p th:text="${#maps.containsKey(allDepts,10L)}"/>
+		<p th:text="${allDepts[10L]}"/>
+	<hr/>
+		<div th:object="${member}">
+			<span th:text="'姓名：' + *{name}"/><br/>
+			<span th:text="'部门：' + ${allDepts[member.deptno]}"/><br/>
+			<span th:text="'所有部门：' + ${allDepts}"/>
+		</div>
+</body>
+</html>
