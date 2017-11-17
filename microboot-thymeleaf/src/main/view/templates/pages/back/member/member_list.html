@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>SpringBoot模板渲染</title>
+	<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+	<link type="text/css" rel="stylesheet" th:href="@{bootstrap/css/bootstrap.css}"/>
+	<link rel="icon" type="image/x-icon" th:href="@{/images/mldn.ico}"/>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+	<table style="width:100%" border="1">
+		<tr><td>No.</td><td>用户编号</td><td>用户姓名</td><td>用户工资</td><td>even</td><td>odd</td></tr>
+		<tr th:each="member,memberStat:${allMembers}" th:class="${memberStat.even ? 'text-danger' : 'text-green'}">
+			<td th:text="${memberStat.index + 1}"/>
+			<td th:text="${member.mid}"/>
+			<td th:text="${member.name}"/>
+			<td th:text="${member.salary}"/>
+			<td th:text="${memberStat.even}"/>
+			<td th:text="${memberStat.odd}"/>
+		</tr>
+	</table>
+</body>
+</html>

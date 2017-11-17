@@ -15,5 +15,19 @@
 	<p th:text="'用户工资：' + ${member.salary}"/>
 	<p th:text="'部门编号：' + ${member.deptno}"/>
 	<p th:text="'出生日期：' + ${#dates.format(member.birthday,'yyyy-MM-dd')}"/>
+	
+	<div th:object="${member}">
+		<span th:if="*{age ge 18}">
+			<span th:text="*{name} + '是一个成年人.'"/>
+		</span>
+		<span th:if="*{age lt 18}">
+			<span th:text="*{name} + '是一个未成年人.'"/>
+		</span>
+	</div>
+	<div th:object="${member}">
+		<span th:if="*{name == 'ding'}">
+			 是好人！
+		</span>
+	</div>
 </body>
 </html>
